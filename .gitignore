@@ -129,3 +129,13 @@ dmypy.json
 .pyre/
 
 /node_modules
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

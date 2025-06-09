@@ -1,0 +1,32 @@
+server {
+    listen 80;
+    server_name kittygram.ddnsking.com;  
+
+    location / {
+        root /var/www/kittygram/;
+        index index.html;
+        try_files $uri /index.html;
+    }
+
+    location /api/ {
+        client_max_body_size 20M;
+        proxy_pass http://127.0.0.1:8080/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /admin/ {
+        client_max_body_size 20M;
+        proxy_pass http://127.0.0.1:8080/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /media/ {
+        alias /var/www/kittygram/media/;
+    }
+}

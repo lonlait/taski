@@ -1,0 +1,5 @@
+IP: 158.160.70.136;
+name_taski: https://taski.ddnsking.com;
+name_kittygram: https://kittygram.ddnsking.com;
+login: admin;
+password: password123;
